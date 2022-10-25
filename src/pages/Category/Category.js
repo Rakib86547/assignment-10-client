@@ -1,9 +1,21 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Summary from '../Summary/Summary';
 
 const Category = () => {
+    const tutorials = useLoaderData();
+    // console.log(tutorials)
     return (
         <div>
-            <h3>category</h3>
+            
+            <div className='grid grid-cols-3 gap-4 mb-4'>
+                {
+                    tutorials.map(tutorial => <Summary
+                    key={tutorial._id}
+                    tutorial={tutorial}
+                    ></Summary>)
+                }
+            </div>
         </div>
     );
 };
