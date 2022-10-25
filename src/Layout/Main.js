@@ -9,7 +9,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div className='home-container px-4'>
+            <div className='home-container px-4 mt-4'>
                 <div>
                     <LeftSideNav></LeftSideNav>
                 </div>
