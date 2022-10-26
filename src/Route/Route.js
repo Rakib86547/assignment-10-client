@@ -9,6 +9,7 @@ import Error from "../pages/Error/Error";
 import Faq from "../pages/Faq/Faq";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 export const router = createBrowserRouter([{
     path: '/',
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([{
         },
         {
             path: '/check_page',
-            element: <CheckMePages></CheckMePages>
+            element: <PrivetRoute><CheckMePages></CheckMePages></PrivetRoute>
         }
     ]}
 
