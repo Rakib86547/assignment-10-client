@@ -2,20 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+    }
     return (
         <div>
             <div className="w-full max-w-md mx-auto p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
                 <h1 className="text-2xl font-bold text-center">Login</h1>
-                <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
-                        <label for="username" className="block dark:text-gray-400">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
+                        <label for="username" className="block dark:text-gray-400">Email</label>
+                        <input type="email" name="email" id="username" placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 border focus:border-violet-400" required />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label for="password" className="block text-gray-400">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
+                        <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 border focus:border-violet-400" required/>
                         <div className="flex justify-end text-xs dark:text-gray-400">
-                            <Link rel="noopener noreferrer" href="#">Forgot Password?</Link>
+                            <Link href="#">Forgot Password?</Link>
                         </div>
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">Sign in</button>
@@ -43,7 +50,7 @@ const Login = () => {
                     </button>
                 </div>
                 <p className="text-xs text-center sm:px-6 text-gray-400">Don't have an account?
-                    <Link rel="noopener noreferrer" to="/signup" className="underline text-gray-100">Sign up</Link>
+                    <Link to="/signup" className="underline text-gray-100">Sign up</Link>
                 </p>
             </div>
         </div>
