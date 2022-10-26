@@ -9,13 +9,14 @@ const CoursesDetails = () => {
     return (
         <div>
             <div className="card card-compact bg-base-100 shadow-xl">
-                <div className='flex justify-between'>
-                    <h2 className="card-title">{title}</h2>
-                    <FaFileDownload></FaFileDownload>
-                </div>
+
 
                 <div className="card-body">
-                    <img src={image_url} alt="Shoes" />
+                    <div className='flex justify-between'>
+                        <h2 className="card-title">{title}</h2>
+                        <FaFileDownload className='cursor-pointer'></FaFileDownload>
+                    </div>
+                    <img className='rounded-md' src={image_url} alt="Shoes" />
                     <p>{details}</p>
                     <div className="card-actions justify-start">
                         <Link to={`/category/${category_id}`}>
