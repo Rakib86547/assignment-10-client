@@ -15,9 +15,9 @@ export const router = createBrowserRouter([{
     errorElement: <Error></Error>,
     children: [
         {
-            path: '/',
+            path: '/courses',
             element: <Courses></Courses>,
-            loader: () => fetch('http://localhost:5000/tutorials/')
+            loader: () => fetch('http://localhost:5000/programing-category')
         },
         {
         path: '/tutorials/:id',
