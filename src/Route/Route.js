@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Blog from "../pages/Blog/Blog";
 import Category from "../pages/Category/Category";
-import CheckPage from "../pages/CheckPage/CheckPage";
+import CheckMePages from "../pages/CheckMePages/CheckMePages";
 import Courses from "../pages/Courses/Courses";
 import CoursesDetails from "../pages/CoursesDetails/CoursesDetails";
 import Error from "../pages/Error/Error";
@@ -47,9 +47,8 @@ export const router = createBrowserRouter([{
             loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
         },
         {
-            path: '/checkout/:id',
-            element: <CheckPage></CheckPage>,
-            loader: ({params}) => fetch(`http://localhost:5000/checkout/${params.id}`)
+            path: '/check_page',
+            element: <CheckMePages></CheckMePages>
         }
     ]}
 
