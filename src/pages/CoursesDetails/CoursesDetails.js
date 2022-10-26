@@ -19,8 +19,8 @@ const CoursesDetails = () => {
                     <img className='rounded-md' src={image_url} alt="Shoes" />
                     <p>{details}</p>
                     <div className="card-actions justify-start">
-                        <Link to={`/category/${category_id}`}>
-                            <button className="btn btn-primary">Back to Category</button>
+                        <Link to={`/checkout/${category_id}`}>
+                            <button className="btn btn-primary">Get Premium Access</button>
                         </Link>
 
                     </div>
