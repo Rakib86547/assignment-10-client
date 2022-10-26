@@ -1,7 +1,10 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext);
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -9,6 +12,12 @@ const SignUp = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+        createUser(email, password)
+        .then((result) => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error => console.error(error))
         console.log(name, email, password, photoURL)
     }
     return (
@@ -28,11 +37,11 @@ const SignUp = () => {
 
                     <div className="space-y-1 text-sm">
                         <label for="username" className="block dark:text-gray-400">Email</label>
-                        <input type="email" name="email" id="username" placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 border focus:border-violet-400" />
+                        <input type="email" name="email" id="username" placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 border focus:border-violet-400" required/>
                     </div>
                     <div className="space-y-1 text-sm">
                         <label for="password" className="block text-gray-400">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 border focus:border-violet-400" />
+                        <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 border focus:border-violet-400" required/>
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">Sign Up</button>
                 </form>

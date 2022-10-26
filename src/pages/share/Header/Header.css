@@ -1,0 +1,11 @@
+.me-auto a{
+    text-decoration: none;
+    margin: 0 20px;
+    color: #fff;
+}
+.btn {
+    border: 1px solid crimson;
+    margin-left: 4px;
+    color: crimson;
+    font-weight: 600;
+}
