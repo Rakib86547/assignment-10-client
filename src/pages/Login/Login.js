@@ -1,18 +1,21 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
     const {signInWithGoogle, signInWithGithub} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider()
+    const githubProvider = new GithubAuthProvider();
+    const navigate = useNavigate()
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        form.reset();
+        navigate('/')
         console.log(email, password);
     }
 
