@@ -20,17 +20,17 @@ export const router = createBrowserRouter([{
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/programing-category')
+            loader: () => fetch('https://assignment-10-server-side-chi.vercel.app/programing-category')
         },
         {
             path: '/courses',
             element: <Courses></Courses>,
-            loader: () => fetch('http://localhost:5000/programing-category')
+            loader: () => fetch('https://assignment-10-server-side-chi.vercel.app/programing-category')
         },
         {
         path: '/tutorials/:id',
         element: <CoursesDetails></CoursesDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/tutorials/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-server-side-chi.vercel.app/tutorials/${params.id}`)
         },
         {
             path: '/login',
@@ -51,12 +51,12 @@ export const router = createBrowserRouter([{
         {
             path: '/category/:id',
             element: <Category></Category>,
-            loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+            loader: ({params}) => fetch(`https://assignment-10-server-side-chi.vercel.app/category/${params.id}`)
         },
         {
             path: '/checkpagess/:id',
             element: <PrivetRoute><CheckMePages></CheckMePages></PrivetRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/checkpagess/${params.id}`)
+            loader: ({params}) => fetch(`https://assignment-10-server-side-chi.vercel.app/checkpagess/${params.id}`)
         }
     ]}
 
