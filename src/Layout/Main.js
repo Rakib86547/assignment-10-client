@@ -10,7 +10,7 @@ const Main = () => {
         <div>
             <Header></Header>
             <div className='home-container px-4 mt-4'>
-                <div>
+                <div className='d-none'>
                     <LeftSideNav></LeftSideNav>
                 </div>
                 <div>

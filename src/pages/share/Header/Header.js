@@ -7,7 +7,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import './Header.css';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
-import { FaUserAlt } from "react-icons/fa";
+import { FaUser, FaUserAlt } from "react-icons/fa";
+import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext)
@@ -31,24 +32,33 @@ const Header = () => {
                             <Link to="/blog">Blog</Link>
                         </Nav>
                         <Nav>
-                            {
-                                user?.uid ?
-                                    <>
-                                        <span>{user?.displayName}</span>
-                                        <img src={user?.photoURL} className='w-[30px]' alt="" />
-                                        <button onClick={handleLogOut} variant='outline-danger'>Logout</button>
-                                    </>
-                                    :
-                                    <>
-                                        <Link to='/signup'>
-                                            <Button variant="outline-info">Sign Up</Button></Link>
-                                        <Link to='/login'>
-                                            <Button className='ms-2' variant="outline-warning">Login</Button>
-                                        </Link>
-                                        <FaUserAlt className='text-white mt-2 ml-2'></FaUserAlt>
-                                    </>
+                            {user?.uid ?
+                                <>
+                                    <span>{user?.displayName}</span>
+                                    <button variant="outline-warning" onClick={handleLogOut}>Logout</button>
+                                </>
+                                :
+                                <>
+                                    <Link to='/signup'>
+                                        <Button variant="outline-info">Sign Up</Button></Link>
+                                    <Link to='/login'>
+                                        <Button className='ms-2' variant="outline-warning">Login</Button>
+                                    </Link>
+                                </>
+
                             }
+
+                            <Link>
+                                {
+                                    user?.photoURL ? <img style={{ width: '30px' }} src={user?.photoURL} alt="" />
+                                        :
+                                        <FaUser></FaUser>
+                                }
+                            </Link>
                         </Nav>
+                        <div className='d-lg-none'>
+                            <LeftSideNav></LeftSideNav>
+                        </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

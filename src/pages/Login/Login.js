@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
-    const {signInWithGoogle, signInWithGithub} = useContext(AuthContext);
+    const { signInWithGoogle, signInWithGithub, signIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const navigate = useNavigate();
@@ -16,27 +16,32 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        form.reset();
-        navigate(from, {replace: true})
-        console.log(email, password);
+        signIn(email, password)
+            .then((result) => {
+                const user = result.user;
+                form.reset();
+                navigate(from, { replace: true });
+                console.log(user)
+            })
+            .catch(error => console.error(error))
     }
 
     const handleGoogleSign = (provider) => {
         signInWithGoogle(googleProvider)
-        .then((result) => {
-            const user = result.user;
-            console.log(user)
-        })
-        .catch(error => console.error(error))
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
     }
 
     const handleSignWithGithub = (provider) => {
         signInWithGithub(githubProvider)
-        .then(result => {
-            const user = result.user;
-            console.log(user)
-        })
-        .catch(error => console.error(error))
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
     }
     return (
         <div>
@@ -49,7 +54,7 @@ const Login = () => {
                     </div>
                     <div className="space-y-1 text-sm">
                         <label for="password" className="block text-gray-400">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 border focus:border-violet-400" required/>
+                        <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 border focus:border-violet-400" required />
                         <div className="flex justify-end text-xs dark:text-gray-400">
                             <Link href="#">Forgot Password?</Link>
                         </div>
