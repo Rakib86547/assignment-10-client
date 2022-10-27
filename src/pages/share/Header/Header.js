@@ -23,9 +23,9 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" className='' bg='dark' variant='dark'>
                 <Container>
-                    <Link to='/' className='flex'>
+                    <Link to='/' className='flex head'>
                         <img className='w-[30px] mr-1' src={logo1} alt="" />
-                        Developer Zone
+                       Developer Zone
                     </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
