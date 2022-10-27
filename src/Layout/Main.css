@@ -2,3 +2,15 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
+
+@media screen and (max-width: 980px) {
+    .home-container{
+        display: grid;
+        grid-template-columns: 2fr;
+    }
+}
+@media screen and (max-width: 780px) {
+    .home-container{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,10 +1,11 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState('')
     const { signInWithGoogle, signInWithGithub, signIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -23,7 +24,10 @@ const Login = () => {
                 navigate(from, { replace: true });
                 console.log(user)
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                setError(error.message)
+                console.error(error)
+            })
     }
 
     const handleGoogleSign = (provider) => {
@@ -32,7 +36,10 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                setError(error.message)
+                console.error(error)
+            })
     }
 
     const handleSignWithGithub = (provider) => {
@@ -41,7 +48,10 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                setError(error.message)
+                console.error(error)
+            })
     }
     return (
         <div>
@@ -59,6 +69,7 @@ const Login = () => {
                             <Link href="#">Forgot Password?</Link>
                         </div>
                     </div>
+                    <p>{error}</p>
                     <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">Sign in</button>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">
