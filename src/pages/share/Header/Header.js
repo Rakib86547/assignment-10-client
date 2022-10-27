@@ -13,7 +13,7 @@ import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext)
-   
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -23,9 +23,10 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" className='' bg='dark' variant='dark'>
                 <Container>
-                    <Navbar.Brand href="#home" className='flex'>
+                    <Link to='/' className='flex'>
                         <img className='w-[30px] mr-1' src={logo1} alt="" />
-                        Developer Zone</Navbar.Brand>
+                        Developer Zone
+                    </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -59,7 +60,7 @@ const Header = () => {
                                 }
                             </Link>
                         </Nav>
-                       
+
                         <div className='d-lg-none'>
                             <LeftSideNav></LeftSideNav>
                         </div>

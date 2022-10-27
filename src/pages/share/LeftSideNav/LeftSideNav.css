@@ -1,0 +1,10 @@
+a.title {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #4357bb;
+    color: #fff;
+    width: 100%;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
