@@ -10,8 +10,10 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { FaUser, } from "react-icons/fa";
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
+
 const Header = () => {
     const { logOut, user } = useContext(AuthContext)
+   
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -57,6 +59,7 @@ const Header = () => {
                                 }
                             </Link>
                         </Nav>
+                       
                         <div className='d-lg-none'>
                             <LeftSideNav></LeftSideNav>
                         </div>

@@ -54,10 +54,6 @@ export const router = createBrowserRouter([{
             loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
         },
         {
-            path: '/check_page',
-            element: <PrivetRoute><CheckMePages></CheckMePages></PrivetRoute>
-        },
-        {
             path: '/checkpagess/:id',
             element: <PrivetRoute><CheckMePages></CheckMePages></PrivetRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/checkpagess/${params.id}`)

@@ -34,6 +34,7 @@ const Login = () => {
         signInWithGoogle(googleProvider)
             .then((result) => {
                 const user = result.user;
+                navigate(from, { replace: true });
                 console.log(user)
             })
             .catch(error => {
@@ -46,6 +47,7 @@ const Login = () => {
         signInWithGithub(githubProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from, { replace: true });
                 console.log(user)
             })
             .catch(error => {
@@ -69,7 +71,7 @@ const Login = () => {
                             <Link href="#">Forgot Password?</Link>
                         </div>
                     </div>
-                    <p>{error}</p>
+                    <p className='text-red-500'>{error}</p>
                     <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">Sign in</button>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">
