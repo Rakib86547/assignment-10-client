@@ -7,6 +7,7 @@ import Courses from "../pages/Courses/Courses";
 import CoursesDetails from "../pages/CoursesDetails/CoursesDetails";
 import Error from "../pages/Error/Error";
 import Faq from "../pages/Faq/Faq";
+import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
@@ -16,6 +17,11 @@ export const router = createBrowserRouter([{
     element: <Main></Main>,
     errorElement: <Error></Error>,
     children: [
+        {
+            path: '/',
+            element: <Home></Home>,
+            loader: () => fetch('http://localhost:5000/programing-category')
+        },
         {
             path: '/courses',
             element: <Courses></Courses>,
@@ -50,6 +56,11 @@ export const router = createBrowserRouter([{
         {
             path: '/check_page',
             element: <PrivetRoute><CheckMePages></CheckMePages></PrivetRoute>
+        },
+        {
+            path: '/checkpagess/:id',
+            element: <PrivetRoute><CheckMePages></CheckMePages></PrivetRoute>,
+            loader: ({params}) => fetch(`http://localhost:5000/checkpagess/${params.id}`)
         }
     ]}
 

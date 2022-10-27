@@ -3,9 +3,16 @@
     margin: 0 20px;
     color: #fff;
 }
-.btn {
-    border: 1px solid crimson;
-    margin-left: 4px;
-    color: crimson;
-    font-weight: 600;
+button.logout-btn {
+    color: wheat;
+    margin: 0 5px;
+    border: 2px solid;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+span.name {
+    color: wheat;
+}
+img.image-header {
+    border-radius: 50%;
 }

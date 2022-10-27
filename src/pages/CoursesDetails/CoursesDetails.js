@@ -19,7 +19,7 @@ const CoursesDetails = () => {
                     <img className='rounded-md' src={image_url} alt="Shoes" />
                     <p>{details}</p>
                     <div className="card-actions justify-start">
-                        <Link to='/check_page'>
+                        <Link to={`/checkpagess/${_id}`}>
                             <button className="btn btn-primary">Get Premium Access</button>
                         </Link>
 

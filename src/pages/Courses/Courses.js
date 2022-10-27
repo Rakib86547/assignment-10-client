@@ -8,7 +8,7 @@ const Courses = () => {
     return (
         <div>
             <h3>All Courses</h3>
-            <div className='grid grid-cols-3 gap-5'>
+            <div className='grid md:grid-cols-3 gap-5'>
                 {
                     allTutorials.map(tutorials => <CoursesTutorials
                     key={tutorials._id}
