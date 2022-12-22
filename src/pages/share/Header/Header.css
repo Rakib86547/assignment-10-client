@@ -16,3 +16,7 @@ span.name {
 img.image-header {
     border-radius: 50%;
 }
+.head {
+    text-decoration: none;
+    color: #fff;
+}

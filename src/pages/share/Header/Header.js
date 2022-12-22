@@ -56,7 +56,7 @@ const Header = () => {
                                 {
                                     user?.photoURL ? <img className='image-header' style={{ width: '30px' }} src={user?.photoURL} alt="" />
                                         :
-                                        <FaUser></FaUser>
+                                        <FaUser className='flex items-center ml-3 justify-center mt-3'></FaUser>
                                 }
                             </Link>
                         </Nav>
